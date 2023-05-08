@@ -1,0 +1,12 @@
+.movieCard__conteiner{
+    height: 450px;
+    width: 300px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+.movieCard__poster{
+    width: 100%;
+}

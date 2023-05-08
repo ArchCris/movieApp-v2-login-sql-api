@@ -3,6 +3,10 @@ import './LoginSign.css'
 import axios from 'axios'
 import { useState,useEffect,useContext } from 'react'
 import { loginContext } from '../../context/ContextProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -65,6 +69,7 @@ const LoginSign = () => {
     <div className='loginSign__conteiner'>
       <div className='loginSign__signUp'>
         <h3>Sign Up</h3>
+          <FontAwesomeIcon icon={faUser} />
           <label>Username</label>
           <input onChange={(e)=>{setNameSign(e.target.value)}} value={nameSign} type='text' placeholder='Username...'></input>
           <label>Password</label>
@@ -74,6 +79,7 @@ const LoginSign = () => {
       </div>
       <div className='loginSign__logIn'>
         <h3>Log In</h3>
+        <FontAwesomeIcon icon={faPen} />
           <label>Username</label>
           <input onChange={(e)=>{setNameLog(e.target.value)}} type='text' placeholder='Username...'></input>
           <label>Password</label>

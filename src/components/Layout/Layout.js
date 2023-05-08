@@ -21,7 +21,7 @@ const Layout = () => {
       <nav className='layout__navbar'>
         <ul>
           <li>
-            <Link to="/">HOME</Link>
+            <Link className='layout__link' to="/">HOME</Link>
           </li>
           <li>
             <Link to="/movies">MOVIES</Link>
@@ -35,6 +35,9 @@ const Layout = () => {
           </li> :
           null}
         </ul>
+        <div className='layout__searchBarConteiner'>
+
+        </div>
       </nav>
       <Outlet />
     </div>

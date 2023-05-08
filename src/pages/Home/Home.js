@@ -2,6 +2,7 @@ import LoginSign from '../../components/LoginSign/LoginSign';
 import './home.css';
 import { loginContext } from '../../context/ContextProvider';
 import { useContext, useEffect } from 'react';
+import DisplayMovies from '../../components/DisplayMovies/DisplayMovies';
 
 
 function Home() {
@@ -15,7 +16,7 @@ function Home() {
     <div className="home__conteiner">
       {!loginStatus ?
       <LoginSign/> :
-      null
+      <DisplayMovies/>
       }
     </div>
   );

@@ -1,0 +1,10 @@
+.displayMovies__conteiner{
+    padding: 18vh 4rem 4rem 4rem;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    place-items: center;
+}
+
+
