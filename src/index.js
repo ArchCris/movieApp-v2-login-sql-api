@@ -5,10 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/Home.js';
 import Layout from './components/Layout/Layout';
-import Movies from './pages/Movies/Movies';
+import Movie from './pages/Movie/Movie';
 import Contact from './pages/Contact/Contact';
 import NoPage from './pages/NoPage/NoPage';
 import ContextProvider from './context/ContextProvider';
+import Test from './pages/Test/Test';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,9 +19,10 @@ root.render(
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="movies" element={<Movies />} />
+            <Route path="movie/:id" element={<Movie/>} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
+            <Route path="/test" element={<Test />} />
           </Route>
         </Routes>
       </BrowserRouter>

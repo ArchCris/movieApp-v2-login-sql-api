@@ -7,15 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-
-
-
 const LoginSign = () => {
 
   const {setLoginStatus} = useContext(loginContext)
 
   useEffect(() => {
-   
     axios.get('http://localhost:3001/login').then(resp=>{
       if(resp.data.loggedIn===true){
         setLoginStatus(resp.data.user[0])
@@ -68,8 +64,7 @@ const LoginSign = () => {
   return (
     <div className='loginSign__conteiner'>
       <div className='loginSign__signUp'>
-        <h3>Sign Up</h3>
-          <FontAwesomeIcon icon={faUser} />
+        <h3>Sign Up  <FontAwesomeIcon icon={faUser} /></h3>
           <label>Username</label>
           <input onChange={(e)=>{setNameSign(e.target.value)}} value={nameSign} type='text' placeholder='Username...'></input>
           <label>Password</label>
@@ -78,8 +73,7 @@ const LoginSign = () => {
           <button onClick={()=>{signUp()}}>Sign Up</button>
       </div>
       <div className='loginSign__logIn'>
-        <h3>Log In</h3>
-        <FontAwesomeIcon icon={faPen} />
+        <h3>Log In  <FontAwesomeIcon icon={faPen} /></h3>
           <label>Username</label>
           <input onChange={(e)=>{setNameLog(e.target.value)}} type='text' placeholder='Username...'></input>
           <label>Password</label>

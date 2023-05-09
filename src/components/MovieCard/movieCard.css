@@ -6,7 +6,29 @@
     justify-content: center;
     align-items: flex-start;
     overflow: hidden;
+    position: relative;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+.movieCard__conteiner:hover{
+    box-shadow: 10px 10px 0 black;
+    transform: translate(-10px, -10px);
 }
 .movieCard__poster{
     width: 100%;
+}
+.movieCard__vote{
+    position: absolute;
+    color: var(--color-four);
+    height: 40px;
+    width: 40px;
+    background-color: var(--color-three);
+    bottom: 10px;
+    right: 10px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 4px var(--color-one);
+    box-shadow: 0 0 10px white;
 }

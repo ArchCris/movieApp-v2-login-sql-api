@@ -1,0 +1,21 @@
+.scoreBadge__conteiner{
+    margin-top: 1rem;
+    padding: .4rem;
+    height: fit-content;
+    width: fit-content;
+    background-color: var(--color-two);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scoreBadge__stars{
+    display: flex;
+}
+.scoreBadge__stars p{
+    margin: 0 .2rem;
+}
+.scoreBadge__votes{
+    margin: .4rem;
+    color: var(--color-four);
+}

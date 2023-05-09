@@ -40,7 +40,7 @@ const db = mysql.createConnection({
 })
 //Check
 app.listen(PORT,()=>{
-    console.log(`Server runnin on port ${PORT}`)
+    console.log(`Server running on port ${PORT}`)
 })
 //Requests
 //Encrypt settings
@@ -111,15 +111,42 @@ app.get('/endSession',(req,res)=>{
 
 //Get popular movies
 app.get('/movies', async (req,res)=>{
-    console.log(process.env.API_KEY_MOVIES)
     try{
         let query = `https://api.themoviedb.org/3/movie/popular?api_key=352529bcb5d4b936de8f40dd819104ae&language=en-US&page=1`
         const data = await fetch(query)
         const response = await data.json()
         res.send(response)
       }catch(err){
-      console.log(err)
+        console.log(err)
       }
 })
+
+//Get specific movie
+app.post('/movie/id', async (req,res)=>{
+    let id = req.body.id.id
+    try{
+        let query = `https://api.themoviedb.org/3/movie/${id}?api_key=352529bcb5d4b936de8f40dd819104ae&language=en-US`
+        const data = await fetch(query)
+        const response = await data.json()
+        res.send(response)
+      }catch(err){
+        console.log(err)
+      }
+})
+
+//Live search
+
+app.post('/movieSearch', async (req,res)=>{
+    let string = req.body.string
+    try{
+        let query = `https://api.themoviedb.org/3/search/movie?api_key=352529bcb5d4b936de8f40dd819104ae&query=${string}`
+        const data = await fetch(query)
+        const response = await data.json()
+        res.send(response)
+      }catch(err){
+        console.log(err)
+      }
+})
+
 
 

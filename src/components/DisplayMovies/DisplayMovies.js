@@ -10,7 +10,6 @@ const DisplayMovies = () => {
     const getPopularMovies = () =>{
         axios.get('http://localhost:3001/movies').then(resp=>{
           setMoviesToDisplay(resp.data.results)
-          console.log(resp.data.results)
     })
     }
 
@@ -18,15 +17,11 @@ const DisplayMovies = () => {
       getPopularMovies()
     }, []);
 
-    
-    
-
-
   return (
     <div className='displayMovies__conteiner'>
         {moviesToDisplay.map((movie,key)=>{
           return(
-            <MovieCard key={key} img={movie.poster_path} title={movie.original_title}/>
+            <MovieCard key={key} id={movie.id} img={movie.poster_path} title={movie.original_title} vote={movie.vote_average}/>
           )
         })}
     </div>
