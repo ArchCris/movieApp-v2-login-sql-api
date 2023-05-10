@@ -15,7 +15,7 @@ const app = express()
 //App config, with session settings
 app.use(express.json())
 app.use(cors({
-    origin:['http://localhost:3000'],
+    origin:['https://mysql-deploy-movieapp-cris.herokuapp.com'],
     methods: ['GET','POST'],
     credentials: true,
 }))
