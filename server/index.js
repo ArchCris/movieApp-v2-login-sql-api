@@ -34,11 +34,13 @@ app.use(session({
 
 //DDBB conecction
 const db = mysql.createConnection({
-    user:'root',
-    host:'localhost',
-    password:'password',
-    database:'movieAppDDBB'
+    user:'bd45a8309b75e6',
+    host:'us-cdbr-east-06.cleardb.net',
+    password:'aeac926c',
+    database:'heroku_e0284971d741c49'
 })
+
+
 
 db.connect(function(err) {
     if (err) throw err;
