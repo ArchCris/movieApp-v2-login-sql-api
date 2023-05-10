@@ -12,7 +12,7 @@ const LoginSign = () => {
   const {setLoginStatus} = useContext(loginContext)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/login').then(resp=>{
+    axios.get(`${process.env.REACT_APP_LOCAL_URL}login`).then(resp=>{
       if(resp.data.loggedIn===true){
         setLoginStatus(resp.data.user[0])
       }
@@ -28,7 +28,7 @@ const LoginSign = () => {
   const[signMessage,setSignMessage]=useState(null)
   //Sign function
   const signUp = () =>{
-    axios.post('http://localhost:3001/signup',{
+    axios.post(`${process.env.REACT_APP_LOCAL_URL}signup`,{
       name:nameSign,
       password:passwordSign
     }).then(resp=>{
@@ -49,7 +49,7 @@ const LoginSign = () => {
   const[logMessage,setLogMessage]=useState(null)
   //Login function
   const logIn = () =>{
-    axios.post('http://localhost:3001/login',{
+    axios.post(`${process.env.REACT_APP_LOCAL_URL}login`,{
       name:nameLog,
       password:passwordLog
     }).then(resp=>{

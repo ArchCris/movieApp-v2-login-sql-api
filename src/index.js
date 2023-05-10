@@ -9,9 +9,10 @@ import Movie from './pages/Movie/Movie';
 import Contact from './pages/Contact/Contact';
 import NoPage from './pages/NoPage/NoPage';
 import ContextProvider from './context/ContextProvider';
-import Test from './pages/Test/Test';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+console.log(process.env.REACT_APP_TMDB_API_KEY)
 root.render(
   <React.StrictMode>
     <ContextProvider>
@@ -22,7 +23,6 @@ root.render(
             <Route path="movie/:id" element={<Movie/>} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
-            <Route path="/test" element={<Test />} />
           </Route>
         </Routes>
       </BrowserRouter>

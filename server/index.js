@@ -3,7 +3,9 @@ const mysql = require('mysql')
 const cors = require('cors')
 const PORT = 3001
 const bcrypt = require('bcrypt')
+require("dotenv").config()
 
+console.log(process.env.TMDB_API_KEY)
 //Session settings
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -111,8 +113,9 @@ app.get('/endSession',(req,res)=>{
 
 //Get popular movies
 app.get('/movies', async (req,res)=>{
+    
     try{
-        let query = `https://api.themoviedb.org/3/movie/popular?api_key=352529bcb5d4b936de8f40dd819104ae&language=en-US&page=1`
+        let query = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`
         const data = await fetch(query)
         const response = await data.json()
         res.send(response)
@@ -125,7 +128,7 @@ app.get('/movies', async (req,res)=>{
 app.post('/movie/id', async (req,res)=>{
     let id = req.body.id.id
     try{
-        let query = `https://api.themoviedb.org/3/movie/${id}?api_key=352529bcb5d4b936de8f40dd819104ae&language=en-US`
+        let query = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}&language=en-US`
         const data = await fetch(query)
         const response = await data.json()
         res.send(response)
@@ -139,7 +142,7 @@ app.post('/movie/id', async (req,res)=>{
 app.post('/movieSearch', async (req,res)=>{
     let string = req.body.string
     try{
-        let query = `https://api.themoviedb.org/3/search/movie?api_key=352529bcb5d4b936de8f40dd819104ae&query=${string}`
+        let query = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${string}`
         const data = await fetch(query)
         const response = await data.json()
         res.send(response)
@@ -147,6 +150,7 @@ app.post('/movieSearch', async (req,res)=>{
         console.log(err)
       }
 })
+
 
 
 

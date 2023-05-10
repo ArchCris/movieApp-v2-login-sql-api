@@ -17,14 +17,14 @@ const Layout = () => {
   const {loginStatus,setLoginStatus} = useContext(loginContext)
  
   const closeSession = () =>{
-    axios.get('http://localhost:3001/endSession').then(resp=>{
+    axios.get(`${process.env.REACT_APP_LOCAL_URL}endSession`).then(resp=>{
       setLoginStatus(null)
       navigate("/")
     })
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/login').then(resp=>{
+    axios.get(`${process.env.REACT_APP_LOCAL_URL}login`).then(resp=>{
       if(resp.data.loggedIn===true){
         setLoginStatus(resp.data.user[0])
       }

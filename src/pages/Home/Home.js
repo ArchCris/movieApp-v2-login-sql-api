@@ -8,8 +8,6 @@ import DisplayMovies from '../../components/DisplayMovies/DisplayMovies';
 function Home() {
 
   const {loginStatus} = useContext(loginContext)
-  console.log(process.env)
-  
 
   return (
     <div className="home__conteiner">

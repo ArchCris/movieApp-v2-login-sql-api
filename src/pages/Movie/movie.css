@@ -36,6 +36,7 @@
 }
 .identifier{
     color: black;
+    margin-bottom: .2rem;
 }
 .movieDetail__title{
     font-weight: 600;
@@ -53,6 +54,5 @@
 }
 .genre{
     margin: 0 .2rem;
-    background-color: var(--color-one);
 }
 
