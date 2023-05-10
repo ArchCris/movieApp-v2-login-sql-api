@@ -16,7 +16,7 @@ const Movie = () => {
     const[movieDetail,setMovieDetail]=useState(null)
 
     const getMovie = () =>{
-            axios.post(`${process.env.REACT_APP_LOCAL_URL}movie/id`,{id:movieId}).then(resp=>{
+            axios.post(`${process.env.REACT_APP_LOCAL_URL}/movie/id`,{id:movieId}).then(resp=>{
             setMovieDetail(resp.data)
         })
     }

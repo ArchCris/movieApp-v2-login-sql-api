@@ -12,9 +12,9 @@ import ContextProvider from './context/ContextProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log(process.env.REACT_APP_TMDB_API_KEY)
+
 root.render(
-  <React.StrictMode>
+  
     <ContextProvider>
       <BrowserRouter>
         <Routes>
@@ -27,7 +27,7 @@ root.render(
         </Routes>
       </BrowserRouter>
     </ContextProvider>
-  </React.StrictMode>
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

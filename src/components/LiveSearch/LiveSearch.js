@@ -17,7 +17,7 @@ const LiveSearch = () => {
         
         if(loginStatus){
         setSearchingMovies(e.target.value)
-        axios.post(`${process.env.REACT_APP_LOCAL_URL}movieSearch`,{string:searchingMovies}).then(result=>{
+        axios.post(`${process.env.REACT_APP_LOCAL_URL}/movieSearch`,{string:searchingMovies}).then(result=>{
             setSearchedMovies(result.data.results)
         })
     }

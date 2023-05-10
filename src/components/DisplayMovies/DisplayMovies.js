@@ -8,7 +8,7 @@ const DisplayMovies = () => {
   const[moviesToDisplay,setMoviesToDisplay]=useState([])
 
     const getPopularMovies = () =>{
-        axios.get(`${process.env.REACT_APP_LOCAL_URL}movies`).then(resp=>{
+        axios.get(`${process.env.REACT_APP_LOCAL_URL}/movies`).then(resp=>{
           setMoviesToDisplay(resp.data.results)
     })
     }

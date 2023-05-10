@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoginSign.css'
 import axios from 'axios'
-import { useState,useEffect,useContext } from 'react'
+import { useState,useContext } from 'react'
 import { loginContext } from '../../context/ContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
@@ -10,14 +10,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 const LoginSign = () => {
 
   const {setLoginStatus} = useContext(loginContext)
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_LOCAL_URL}login`).then(resp=>{
-      if(resp.data.loggedIn===true){
-        setLoginStatus(resp.data.user[0])
-      }
-    })
-  }, []);
 
   //Session setting
   axios.defaults.withCredentials = true
@@ -28,7 +20,7 @@ const LoginSign = () => {
   const[signMessage,setSignMessage]=useState(null)
   //Sign function
   const signUp = () =>{
-    axios.post(`${process.env.REACT_APP_LOCAL_URL}signup`,{
+    axios.post(`${process.env.REACT_APP_LOCAL_URL}/signup`,{
       name:nameSign,
       password:passwordSign
     }).then(resp=>{
@@ -49,7 +41,7 @@ const LoginSign = () => {
   const[logMessage,setLogMessage]=useState(null)
   //Login function
   const logIn = () =>{
-    axios.post(`${process.env.REACT_APP_LOCAL_URL}login`,{
+    axios.post(`${process.env.REACT_APP_LOCAL_URL}/login`,{
       name:nameLog,
       password:passwordLog
     }).then(resp=>{

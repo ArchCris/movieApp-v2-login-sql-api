@@ -5,7 +5,6 @@ const PORT = 3001
 const bcrypt = require('bcrypt')
 require("dotenv").config()
 
-console.log(process.env.TMDB_API_KEY)
 //Session settings
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -40,6 +39,12 @@ const db = mysql.createConnection({
     password:'password',
     database:'movieAppDDBB'
 })
+
+db.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
+
 //Check
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
@@ -49,6 +54,7 @@ app.listen(PORT,()=>{
 const saltRounds = 10;
 //signup request
 app.post('/signup',(req,res)=>{
+    console.log('signing')
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         db.query(
             'INSERT INTO users (name,password) VALUES (?,?)',
